@@ -13,10 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+Route::get('/','PropertiesController@index');
+Route::get('/residentials/add', 'PropertiesController@Residentialscreate');
+Route::get('/commercials/add', 'PropertiesController@Commercialscreate');
+Route::get('/landplots/add', 'PropertiesController@Landplotscreate');
+Route::post('/residentials', 'PropertiesController@resistore');
+Route::post('/landplots', 'PropertiesController@landstore');
+Route::delete('/{id}','PropertiesController@destroy');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::post('/commercials', 'PropertiesController@commstore');
+// Route::get('/{id}/residentialsedit', 'PropertiesController@resiedit');
+// Route::get('/{id}/commercialsedit', 'PropertiesController@commedit');
+// Route::get('/{id}/landplotsedit', 'PropertiesController@update');
+// Route::patch('/{id}', 'PropertiesController@landedit');
+
+
+
