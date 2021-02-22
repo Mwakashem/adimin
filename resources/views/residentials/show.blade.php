@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Pls-AddPlots</title>
+    <title>Pls-Admin Dashboard</title>
     <!-- Fevicon -->
     <!-- Start css -->
     <!-- Switchery css -->
-    <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet">
     <!-- Apex css -->
-    <link href="../assets/plugins/apexcharts/apexcharts.css" rel="stylesheet">
+    <link href="assets/plugins/apexcharts/apexcharts.css" rel="stylesheet">
     <!-- Slick css -->
-    <link href="../assets/plugins/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/slick/slick.css" rel="stylesheet">
+    
+    <link href="assets/plugins/toolbar/jquery.toolbar.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/flag-icon.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .immg{
+            height: 170px;
+            border-radius: 10px;
+        }
 
-    <link href="../assets/plugins/slick/slick.css" rel="stylesheet">
-    <link href="../assets/plugins/slick/slick-theme.css" rel="stylesheet">
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/flag-icon.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    </style>
     <!-- End css -->
 </head>
 <body class="vertical-layout">
@@ -90,8 +97,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="mobile-logobar">
-                            <!-- <a href="index.html" class="mobile-logo"><img src="../assets/images/logo.svg" class="img-fluid" alt="logo"></a> -->
-                            <h3> <a href="index.html">Admin Dashboard</a></h3>
+                            <!-- <a href="index.html" class="mobile-logo"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a> -->
+                            <h3> <a href="/">Admin Dashboard</a></h3>
                         </div>
                         <div class="mobile-togglebar">
                             <ul class="list-inline mb-0">
@@ -203,7 +210,7 @@
                                 <li class="list-inline-item">
                                     <div class="profilebar">
                                         <div class="dropdown">
-                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">{{ Auth::user()->name }}</span></a>
+                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">{{ Auth::user()->name }}</span></a>
                                         </div>
                                     </div>                                   
                                 </li>
@@ -219,7 +226,7 @@
             <div class="breadcrumbbar">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
-                        <h4 class="page-title">Add New Property</h4>
+                        <h4 class="page-title">Dashboard</h4>
                         <!-- <div class="breadcrumb-list">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li> -->
@@ -237,127 +244,89 @@
             </div>
             <!-- End Breadcrumbbar -->
             <!-- Start Contentbar -->    
-            <div class="contentbar">   
+            <div class="contentbar">                
                 <!-- Start row -->
                 <div class="row">
                     <!-- Start col -->
                     <div class="col-lg-12">
                         <div class="card m-b-30">
-                            <div class="card-header">
-                                <h5 class="card-title">Add LandPlots</h5>
+                            <div class="card-header">                                
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <h5 class="card-title mb-0">All Products</h5>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <form action="/landplots" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="inputEmail4">Title</label>
-                                            <input type="text" value="{{ old('title') }}" name="title" class="form-control"  placeholder="">
-                                            @error('title')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Description</label>
-                                        <textarea class="form-control"value="{{ old('description') }}" rows="5" name="description" id="maxlength-textarea" placeholder=" ">{{ old('description') }}</textarea>
-                                        @error('description')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="inputAddress">Address/Street</label>
-                                            <input type="text" value="{{ old('street') }}" name="street" class="form-control" id="inputAddress" placeholder="">
-                                            @error('street')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="inputAddress">County</label>
-                                            <input type="text" value="{{ old('county') }}" name="county" class="form-control" id="inputAddress" placeholder="">
-                                            @error('county')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputState">Status</label>
-                                            <select id="inputState" value="{{ old('status') }}" name="status" class="form-control">
-                                                <option selected>Rent</option>
-                                                <option>Sale</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputState">Type</label>
-                                            <select id="inputState"value="{{ old('type') }}" name="type" class="form-control">
-                                                <option selected>Small Plots</option>
-                                                <option>Big Land Mass</option>
-                                            </select>
-                                        </div>
-                                    </div>  
-                                    <div class="card m-b-30">
-                                        <div class="card-header">
-                                            <h5 class="card-title">Property Cover Image upload</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="fallback">
-                                                <input name="pimg" type="file">
-                                                @error('pimg')
-                                                    <strong>{{ $message }}</strong>
-                                                 @enderror
-                                            </div>
-                                        </div>
-                                    </div><!--   
-                                    <div class="card m-b-30">
-                                        <div class="card-header">
-                                            <h5 class="card-title">Property Images upload</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="fallback">
-                                                <input name="pimgs[]" type="file" multiple="multiple">
-                                            </div>
-                                        </div>
-                                    </div>  -->                                    
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputAddress">Price</label>
-                                            <input type="text" value="{{ old('price') }}" name="price" class="form-control" id="inputAddress" placeholder="">
-                                            @error('price')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputAddress">Area(sqft)</label>
-                                            <input type="text" value="{{ old('price') }}" name="area" class="form-control" id="inputAddress" placeholder="">
-                                            @error('area')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                     <input type="text" value="landplots" name="ptype" hidden>
-
-                                    <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
-                                    <button type="submit" class="btn btn-warning"><i class="feather icon-send mr-2"></i> Submit</button>
-                                </form>
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <!-- <th>Stock</th>
+                                                <th>Price</th> -->
+                                                <th>Location</th>
+                                                <th>Price</th>
+                                                <!-- <th>Orders</th> -->
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($Residentials as $property)
+                                            <tr>
+                                                <th scope="row">#{{$property->id}}</th>
+                                                <td><img src="/storage/{{ $property-> pimg}}" class="img-fluid immg" width="350" alt="product"></td>
+                                                <td class="text-success">{{$property->title}}</td>
+                                                <!-- <td>$1,70,000</td>
+                                                <td>Electronics</td> -->
+                                                <td><span class="badge badge-secondary-inverse mr-2">{{$property->county}}</span><span class="badge badge-secondary-inverse mr-2">{{$property->city}}</span><span class="badge badge-secondary-inverse">{{$property->street}}</span></td>
+                                                <td>Ksh.{{$property->price}}</td>
+                                                <td>
+                                                    <div class="button-list ">
+                                                        <!-- <a href="/{{$property->id}}/{{$property->ptype}}edit" class="btn btn-success-rgba"><i class="ri-pencil-line"></i></a> -->
+                                                        {{-- <button type="button" class="btn btn-secondary"><i class="feather icon-zoom-in mr-2"></i> View</button> --}}
+                                                        {{-- <button type="button" class="btn btn-warning"><i class="feather icon-upload mr-2"></i> Update</button> --}}
+                                                        {{-- <form action="/{{$property->id}}" method="post">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger"><i class="feather icon-trash-2 mr-2"></i> Delete</button>
+                                                            
+                                                        </form> --}}
+                                                        <div class="btn-group">
+                                                            <a href="/residentials/{{$property->id}}">
+                                                                <button type="button" class="btn btn-primary-rgba" data-method="reset" title="Reset">
+                                                                    <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.reset()">
+                                                                      <span class="ri-eye-fill"></span>
+                                                                    </span>
+                                                                  </button>
+                                                            </a>
+                                                            <form action="/residentials/{{$property->id}}" method="post">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger" data-method="reset" title="Reset">
+                                                                    <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.reset()">
+                                                                      <span class="ri-delete-bin-5-line"></span>
+                                                                    </span>
+                                                                  </button>
+                                                                </form>
+                                                          </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                           @endforeach
+                                            <tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- End col -->
-                </div> <!-- End row -->
+                </div>
+                <!-- End row -->
+                
             </div>
             <!-- End Contentbar -->
             <!-- Start Footerbar -->
@@ -372,25 +341,39 @@
     </div>
     <!-- End Containerbar -->
     <!-- Start js -->        
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/modernizr.min.js"></script>
-    <script src="../assets/js/detect.js"></script>
-    <script src="../assets/js/jquery.slimscroll.js"></script>
-    <script src="../assets/js/vertical-menu.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/vertical-menu.js"></script>
     <!-- Switchery js -->
-    <script src="../assets/plugins/switchery/switchery.min.js"></script>
+    <script src="assets/plugins/switchery/switchery.min.js"></script>
     <!-- Apex js -->
-    <script src="../assets/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="../assets/plugins/apexcharts/irregular-data-series.js"></script>    
+    <script src="assets/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/plugins/apexcharts/irregular-data-series.js"></script>    
     <!-- Slick js -->
-    <script src="../assets/plugins/slick/slick.min.js"></script>
+    <script src="assets/plugins/slick/slick.min.js"></script>
     <!-- Custom Dashboard js -->   
-    <script src="../assets/js/custom/custom-dashboard.js"></script>
-    <script src="../assets/plugins/dropzone/dist/dropzone.js"></script>
+    <script src="assets/js/custom/custom-dashboard.js"></script>
     <!-- Core js -->
-    <script src="../assets/js/core.js"></script>
+    <script src="assets/js/core.js"></script>
+    <script src="assets/js/custom/custom-toolbar.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/vertical-menu.js"></script>
+    <!-- Switchery js -->
+    <script src="assets/plugins/switchery/switchery.min.js"></script>
+    <!-- Toolbar js -->
+    <script src="assets/plugins/toolbar/jquery.toolbar.min.js"></script>
+    <script src="assets/js/custom/custom-toolbar.js"></script>
+    <!-- Core js -->
+    <script src="assets/js/core.js"></script>
     <!-- End js -->
 </body>
 

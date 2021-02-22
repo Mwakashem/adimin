@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Pls-Add Commercials</title>
+    <title>Pls-AddPlots</title>
     <!-- Fevicon -->
     <!-- Start css -->
     <!-- Switchery css -->
@@ -153,11 +153,57 @@
                         </div>
                         <div class="infobar">
                             <ul class="list-inline mb-0">
+                                <!-- <li class="list-inline-item">
+                                    <div class="notifybar">
+                                        <div class="dropdown">
+                                            <a class="dropdown-toggle infobar-icon" href="#" role="button" id="notoficationlink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="iconbar"><i class="ri-notification-3-line"></i><span class="live-icon"></span></span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notoficationlink">
+                                                <div class="notification-dropdown-title">
+                                                    <h5>Notifications<a href="#">Clear all</a></h5>                            
+                                                </div>
+                                                <ul class="list-unstyled">                                                    
+                                                    <li class="media dropdown-item">
+                                                        <span class="action-icon badge badge-primary"><i class="ri-archive-line"></i></span>
+                                                        <div class="media-body">
+                                                            <h5 class="action-title">Product Added</h5>
+                                                            <p><span class="timing">Today, 08:40 AM</span></p>                            
+                                                        </div>
+                                                    </li>
+                                                    <li class="media dropdown-item">
+                                                        <span class="action-icon badge badge-success"><i class="ri-price-tag-3-line"></i></span>
+                                                        <div class="media-body">
+                                                            <h5 class="action-title">Sale Started</h5>
+                                                            <p><span class="timing">Today, 03:45 PM</span></p>                            
+                                                        </div>
+                                                    </li>
+                                                    <li class="media dropdown-item">
+                                                        <span class="action-icon badge badge-warning"><i class="ri-file-text-line"></i></span>
+                                                        <div class="media-body">
+                                                            <h5 class="action-title">Kelly Reported</h5>
+                                                            <p><span class="timing">5 June 2020, 02:20 PM</span></p>                            
+                                                        </div>
+                                                    </li>
+                                                    <li class="media dropdown-item">
+                                                        <span class="action-icon badge badge-danger"><i class="ri-file-user-line"></i></span>
+                                                        <div class="media-body">    
+                                                            <h5 class="action-title">John Resigned</h5>
+                                                            <p><span class="timing">2 June 2020, 11:11 AM</span></p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="notification-dropdown-footer">
+                                                    <h5><a href="#">See all</a></h5>                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> -->
                                 <li class="list-inline-item">
                                     <div class="profilebar">
                                         <div class="dropdown">
                                           <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">{{ Auth::user()->name }}</span></a>
-                                            
                                         </div>
                                     </div>                                   
                                 </li>
@@ -198,10 +244,10 @@
                     <div class="col-lg-12">
                         <div class="card m-b-30">
                             <div class="card-header">
-                                <h5 class="card-title">Add Commercials</h5>
+                                <h5 class="card-title">Add LandPlots</h5>
                             </div>
                             <div class="card-body">
-                               <form action="/commercials" method="POST" enctype="multipart/form-data">
+                                <form action="/landplots" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
@@ -224,7 +270,7 @@
                                             @enderror
                                     </div>
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-6">
                                             <label for="inputAddress">Address/Street</label>
                                             <input type="text" value="{{ old('street') }}" name="street" class="form-control" id="inputAddress" placeholder="">
                                             @error('street')
@@ -233,16 +279,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="inputAddress">City</label>
-                                            <input type="text" value="{{ old('city') }}" name="city" class="form-control" id="inputAddress" placeholder="">
-                                            @error('city')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-6">
                                             <label for="inputAddress">County</label>
                                             <input type="text" value="{{ old('county') }}" name="county" class="form-control" id="inputAddress" placeholder="">
                                             @error('county')
@@ -263,8 +300,8 @@
                                         <div class="form-group col-md-6">
                                             <label for="inputState">Type</label>
                                             <select id="inputState"value="{{ old('type') }}" name="type" class="form-control">
-                                                <option selected>Office Space</option>
-                                                <option>Business premises</option>
+                                                <option selected>Small Plots</option>
+                                                <option>Big Land Mass</option>
                                             </select>
                                         </div>
                                     </div>  
@@ -311,7 +348,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                     <input type="text" value="commercials" name="ptype" hidden>
+                                     <input type="text" value="landplots" name="ptype" hidden>
 
                                     <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
                                     <button type="submit" class="btn btn-warning"><i class="feather icon-send mr-2"></i> Submit</button>

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PropertiesSeeder extends Seeder
+class CommercialsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

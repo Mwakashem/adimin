@@ -7,16 +7,18 @@
     <!-- Fevicon -->
     <!-- Start css -->
     <!-- Switchery css -->
-    <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet">
     <!-- Apex css -->
-    <link href="assets/plugins/apexcharts/apexcharts.css" rel="stylesheet">
+    <link href="../assets/plugins/apexcharts/apexcharts.css" rel="stylesheet">
     <!-- Slick css -->
-    <link href="assets/plugins/slick/slick.css" rel="stylesheet">
-    <link href="assets/plugins/slick/slick-theme.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/flag-icon.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/plugins/slick/slick.css" rel="stylesheet">
+    
+    <link href="../assets/plugins/toolbar/jquery.toolbar.css" rel="stylesheet" type="text/css">
+    <link href="../assets/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/flag-icon.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         .immg{
             height: 170px;
@@ -38,8 +40,8 @@
                 <!-- Start Logobar -->
                 <div class="logobar">
                 <h3> <a href="/">Admin Dashboard</a></h3>
-                    <!-- <a href="index.html" class="logo logo-large"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a>
-                    <a href="index.html" class="logo logo-small"><img src="assets/images/small_logo.svg" class="img-fluid" alt="logo"></a> -->
+                    <!-- <a href="index.html" class="logo logo-large"><img src="../assets/images/logo.svg" class="img-fluid" alt="logo"></a>
+                    <a href="index.html" class="logo logo-small"><img src="../assets/images/small_logo.svg" class="img-fluid" alt="logo"></a> -->
                 </div>
                 <!-- End Logobar -->
                 <!-- Start Navigationbar -->
@@ -95,7 +97,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="mobile-logobar">
-                            <!-- <a href="index.html" class="mobile-logo"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a> -->
+                            <!-- <a href="index.html" class="mobile-logo"><img src="../assets/images/logo.svg" class="img-fluid" alt="logo"></a> -->
                             <h3> <a href="/">Admin Dashboard</a></h3>
                         </div>
                         <div class="mobile-togglebar">
@@ -208,7 +210,7 @@
                                 <li class="list-inline-item">
                                     <div class="profilebar">
                                         <div class="dropdown">
-                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">{{ Auth::user()->name }}</span></a>
+                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/profile.svg" class="img-fluid" alt="profile"><span class="live-icon">{{ Auth::user()->name }}</span></a>
                                         </div>
                                     </div>                                   
                                 </li>
@@ -250,21 +252,8 @@
                         <div class="card m-b-30">
                             <div class="card-header">                                
                                 <div class="row align-items-center">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <h5 class="card-title mb-0">All Products</h5>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="list-inline-group text-right mb-0 pl-0">
-                                            <li class="list-inline-item">
-                                                  <div class="form-group mb-0 amount-spent-select">
-                                                    <select class="form-control" id="formControlSelect">
-                                                      <option>All</option>
-                                                      <option>Last Week</option>
-                                                      <option>Last Month</option>
-                                                    </select>
-                                                </div>
-                                            </li>
-                                        </ul>                                        
                                     </div>
                                 </div>
                             </div>
@@ -285,30 +274,46 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($Properties as $property)
                                             <tr>
-                                                <th scope="row">#{{$property->id}}</th>
-                                                <td><img src="/storage/{{ $property-> pimg}}" class="img-fluid immg" width="350" alt="product"></td>
-                                                <td class="text-success">{{$property->title}}</td>
+                                                <th scope="row">#{{$residentials->id}}</th>
+                                                <td><img src="/storage/{{ $residentials-> pimg}}" class="img-fluid immg" width="350" alt="product"></td>
+                                                <td class="text-success">{{$residentials->title}}</td>
                                                 <!-- <td>$1,70,000</td>
                                                 <td>Electronics</td> -->
-                                                <td><span class="badge badge-secondary-inverse mr-2">{{$property->county}}</span><span class="badge badge-secondary-inverse mr-2">{{$property->city}}</span><span class="badge badge-secondary-inverse">{{$property->street}}</span></td>
-                                                <td>Ksh.{{$property->price}}</td>
+                                                <td><span class="badge badge-secondary-inverse mr-2">{{$residentials->county}}</span><span class="badge badge-secondary-inverse mr-2">{{$residentials->city}}</span><span class="badge badge-secondary-inverse">{{$residentials->street}}</span></td>
+                                                <td>Ksh.{{$residentials->price}}</td>
                                                 <td>
                                                     <div class="button-list ">
-                                                        <!-- <a href="/{{$property->id}}/{{$property->ptype}}edit" class="btn btn-success-rgba"><i class="ri-pencil-line"></i></a> -->
-                                                        <button type="button" class="btn btn-secondary"><i class="feather icon-zoom-in mr-2"></i> View</button>
-                                                        <button type="button" class="btn btn-warning"><i class="feather icon-upload mr-2"></i> Update</button>
-                                                        <form action="/{{$property->id}}" method="post">
+                                                        <!-- <a href="/{{$residentials->id}}/{{$residentials->ptype}}edit" class="btn btn-success-rgba"><i class="ri-pencil-line"></i></a> -->
+                                                        {{-- <button type="button" class="btn btn-secondary"><i class="feather icon-zoom-in mr-2"></i> View</button> --}}
+                                                        {{-- <button type="button" class="btn btn-warning"><i class="feather icon-upload mr-2"></i> Update</button> --}}
+                                                        {{-- <form action="/{{$residentials->id}}" method="post">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button type="submit" class="btn btn-danger"><i class="feather icon-trash-2 mr-2"></i> Delete</button>
                                                             
-                                                        </form>
+                                                        </form> --}}
+                                                        <div class="btn-group">
+                                                            <a href="/residentials/{{$residentials->id}}">
+                                                                <button type="button" class="btn btn-primary-rgba" data-method="reset" title="Reset">
+                                                                    <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.reset()">
+                                                                      <span class="ri-eye-fill"></span>
+                                                                    </span>
+                                                                  </button>
+                                                            </a>
+                                                            <form action="/residentials/{{$residentials->id}}" method="post">
+                                                                @method('DELETE')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger" data-method="reset" title="Reset">
+                                                                    <span class="docs-tooltip" data-toggle="tooltip" title="" data-original-title="cropper.reset()">
+                                                                      <span class="ri-delete-bin-5-line"></span>
+                                                                    </span>
+                                                                  </button>
+                                                                </form>
+                                                          </div>
                                                     </div>
                                                 </td>
                                             </tr>
-                                           @endforeach
                                             <tr>
                                         </tbody>
                                     </table>
@@ -319,6 +324,31 @@
                     <!-- End col -->
                 </div>
                 <!-- End row -->
+                <div class="row">
+                    <!-- Start col -->
+                    <div class="col-lg-12">
+                        <div class="card m-b-30">
+                            <div class="card-header">
+                                <h5 class="card-title">Property Details</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="nav nav-tabs custom-tab-line mb-3" id="defaultTabLine" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="description-tab-line" data-toggle="tab" href="#description-line" role="tab" aria-controls="description-line" aria-selected="true"><i class="ri-file-text-line mr-2"></i>Description</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="defaultTabContentLine">
+                                    <div class="tab-pane fade show active" id="description-line" role="tabpanel" aria-labelledby="description-tab-line">
+                                      <p>{{$residentials->description}}.</p>
+                                      {{-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <!-- End col -->
+                </div>
                 
             </div>
             <!-- End Contentbar -->
@@ -334,24 +364,39 @@
     </div>
     <!-- End Containerbar -->
     <!-- Start js -->        
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/modernizr.min.js"></script>
-    <script src="assets/js/detect.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/vertical-menu.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/modernizr.min.js"></script>
+    <script src="../assets/js/detect.js"></script>
+    <script src="../assets/js/jquery.slimscroll.js"></script>
+    <script src="../assets/js/vertical-menu.js"></script>
     <!-- Switchery js -->
-    <script src="assets/plugins/switchery/switchery.min.js"></script>
+    <script src="../assets/plugins/switchery/switchery.min.js"></script>
     <!-- Apex js -->
-    <script src="assets/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/plugins/apexcharts/irregular-data-series.js"></script>    
+    <script src="../assets/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="../assets/plugins/apexcharts/irregular-data-series.js"></script>    
     <!-- Slick js -->
-    <script src="assets/plugins/slick/slick.min.js"></script>
+    <script src="../assets/plugins/slick/slick.min.js"></script>
     <!-- Custom Dashboard js -->   
-    <script src="assets/js/custom/custom-dashboard.js"></script>
+    <script src="../assets/js/custom/custom-dashboard.js"></script>
     <!-- Core js -->
-    <script src="assets/js/core.js"></script>
+    <script src="../assets/js/core.js"></script>
+    <script src="../assets/js/custom/custom-toolbar.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/modernizr.min.js"></script>
+    <script src="../assets/js/detect.js"></script>
+    <script src="../assets/js/jquery.slimscroll.js"></script>
+    <script src="../assets/js/vertical-menu.js"></script>
+    <!-- Switchery js -->
+    <script src="../assets/plugins/switchery/switchery.min.js"></script>
+    <!-- Toolbar js -->
+    <script src="../assets/plugins/toolbar/jquery.toolbar.min.js"></script>
+    <script src="../assets/js/custom/custom-toolbar.js"></script>
+    <!-- Core js -->
+    <script src="../assets/js/core.js"></script>
     <!-- End js -->
 </body>
 
