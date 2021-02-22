@@ -36,6 +36,7 @@ Route::get('/landplots/add', 'LandplotsController@create');
 Route::post('/landplots', 'LandplotsController@store');
 Route::get('/landplots/{id}', 'LandplotsController@show');
 Route::delete('/landplots/{id}','LandplotsController@destroy');
+Route::get('/clients','ClientsController@index');
 
 // Route::post('/commercials', 'PropertiesController@commstore');
 // Route::get('/{id}/residentialsedit', 'PropertiesController@resiedit');
